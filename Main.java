@@ -1,7 +1,11 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
-
-    public class Main {
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+    public class Main extends LireDoucement  {
         
         private static void inmenu(int nombre) throws NoinmenuException{
             if(nombre>15){
@@ -9,26 +13,47 @@ import java.util.Scanner;
                 
             }
         }
-        public static void main(String[] args) throws InterruptedException{
+        public void LireDoucement(String s){
+            for(int i=0;i<s.length();i++){
+                System.out.println(i);
+                Thread.sleep(100);
+            }
+        }
+        public static void main(String[] args) {
             
+
             Scanner scanner = new Scanner(System.in);
             Commande p = Commande.getInstance();
-
+            File file= new File("Serveur.txt");
+         
            
-           
+           try{
+               BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
+               String line= reader.readLine();
+               while(line!=null)
+               {
+                   System.out.println(line);
+                   line=reader.readLine();
+               }
+               reader.close();
+           }catch(IOException exp){
+               System.out.println("Erreur d'ouverture");
+           }
             int nombre=0;
             String reponse="";
             boolean vegetarien=false;
             boolean condition2=true;
+          
+            
+      
 
-            
-            
             while(condition2){
                 
                 boolean condition=true;
                 boolean condition3=true;
 
                 while(condition3){
+                    Thread.sleep(1000);
 
                     System.out.println("etes-vous vegetarien ? Repondez par Oui ou par Non");
                         reponse = scanner.next();
