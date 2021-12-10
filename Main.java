@@ -1,6 +1,13 @@
-    import java.util.Scanner;
+    import java.util.InputMismatchException;
+import java.util.Scanner;
     public class Main {
-
+        
+        private static void inmenu(int nombre) throws NoinmenuException{
+            if(nombre>15){
+                    throw new NoinmenuException();
+                
+            }
+        }
         public static void main(String[] args) throws InterruptedException{
             
             Scanner scanner = new Scanner(System.in);
@@ -14,10 +21,11 @@
             boolean condition2=true;
             boolean condition3=true;
 
+            
+
             while(condition2){
                 //bloc pour le Choix du menu
                 while(condition){
-
                     System.out.println("Choississez votre Menu");
 
                 try{
@@ -28,18 +36,25 @@
                     System.out.println(nombre);
                     condition=false;
                     scanner.close();
+                    inmenu(nombre);
                 
-                } catch(Exception e){
+                } catch(InputMismatchException e){
 
                     System.out.println("Vous n'avez pas rentrer un nombre valide, Veuillez reessayer !!");  
                     Thread.sleep(1000);
                     scanner.nextLine();}
+                catch(NoinmenuException e){
+                        e.printStackTrace();
+                        Thread.sleep(1000);
+                        scanner.nextLine();
+                }
 
                     p.setchoix_menu(nombre);
                     System.out.println(p);
 
                 }
 
+                
              System.out.println("Voulez vous commander autre chose ? Repondez par Oui ou par Non");
 
              while(condition3){
@@ -49,7 +64,7 @@
                     
                 //Lit l'entier écrit par l'utilisateur et l'affecte 
                 // à  la variable nombre du programme
-                    reponse = scanner.nextLine();
+                    reponse = scanner.next();
                     condition3=false;
                     scanner.close();
 
