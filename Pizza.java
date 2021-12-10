@@ -1,6 +1,7 @@
-public class Pizza extends Commande {
+public class Pizza extends Menu {
     protected  double taille;
-
+    protected double Prix;
+    
     public Pizza(int choix_menu,double taille){
         super(choix_menu);
         this.taille=taille;
