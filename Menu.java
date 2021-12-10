@@ -25,7 +25,7 @@ public class Menu {
 
     public Menu clone(){
     
-        return new Menu(choix_menu,vegetarien);
+        return new Menu(choix_menu);
     }
 
     public String toString(){
