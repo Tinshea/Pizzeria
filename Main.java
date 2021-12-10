@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-    public class Main extends LireDoucement  {
+    public class Main {
         
         private static void inmenu(int nombre) throws NoinmenuException{
             if(nombre>15){
@@ -13,13 +13,9 @@ import java.io.InputStreamReader;
                 
             }
         }
-        public void LireDoucement(String s){
-            for(int i=0;i<s.length();i++){
-                System.out.println(i);
-                Thread.sleep(100);
-            }
-        }
-        public static void main(String[] args) {
+        
+        
+        public static void main(String[] args) throws InterruptedException {
             
 
             Scanner scanner = new Scanner(System.in);
