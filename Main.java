@@ -47,7 +47,7 @@ import java.util.Scanner;
                         e.printStackTrace();
                         Thread.sleep(1000);
                         scanner.nextLine();
-                }finally{scanner.close();}
+                }
 
                     p.setchoix_menu(nombre);
                     System.out.println(p);
@@ -59,31 +59,20 @@ import java.util.Scanner;
 
              while(condition3){
 
-                try{
-                    boolean b=true;
+                    reponse = scanner.nextLine();
                     
-                //Lit l'entier écrit par l'utilisateur et l'affecte 
-                // à  la variable nombre du programme
-                    reponse = scanner.next();
-                    condition3=false;
                     
-
                     if(reponse!="Oui" || reponse!="Non" || reponse!="oui" || reponse!="non"){
 
                         System.out.println("Desole je n'ai pas compris");
-                    }
-
-                // Affiche le nombre saisit par l'utilisateur10
-                }catch(Exception e){
-                    
-                    System.out.println("Vous n'avez pas rentrer une reponse valide, Veuillez reessayer !!");  
-                    Thread.sleep(1000); 
-                    scanner.nextLine();}finally{scanner.close();}
+                    }else{condition3=false;}
+                 
 
                 }
+               
 
                 condition2=false;
             }
-        }       
+            scanner.close(); }       
 }
     
