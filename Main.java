@@ -14,65 +14,120 @@ import java.util.Scanner;
             Scanner scanner = new Scanner(System.in);
             Commande p = Commande.getInstance();
 
-            // Affiche "Ecrire un nombre: "
            
-            boolean condition=true;
+           
             int nombre=0;
-            String reponse;
+            String reponse="";
+            boolean vegetarien=false;
             boolean condition2=true;
-            boolean condition3=true;
 
             
-
+            
             while(condition2){
+                
+                boolean condition=true;
+                boolean condition3=true;
+
+                while(condition3){
+
+                    System.out.println("etes-vous vegetarien ? Repondez par Oui ou par Non");
+                        reponse = scanner.next();
+                        
+                        
+                        if(  (reponse.equals("Oui"))  || (reponse.equals("Non")) || (reponse.equals("oui")) || (reponse.equals("non")) ){
+                            condition3=false;
+                           
+            
+    
+                        }else{ System.out.println("Desole je n'ai pas compris");}
+                     
+    
+                    }
+
+                    if((reponse.equals("Oui")) || (reponse.equals("oui")) ){
+                        vegetarien=true;
+
+                        }
+
                 //bloc pour le Choix du menu
                 while(condition){
-                    System.out.println("Choississez votre Menu");
-
+                    System.out.println("Choississez votre Menu");   
+                  
                 try{
                     //Lit l'entier écrit par l'utilisateur et l'affecte 
                     // à  la variable nombre du programme
 
                     nombre = scanner.nextInt();
-                    System.out.println(nombre);
-                    condition=false;
                     inmenu(nombre);
+                    p.addMenu(nombre,vegetarien);
+                    condition=false;
+                    
+                    
+                  
                 
                 } catch(InputMismatchException e){
 
                     System.out.println("Vous n'avez pas rentrer un nombre valide, Veuillez reessayer !!");  
                     Thread.sleep(1000);
                     scanner.nextLine();}
+        
+
                 catch(NoinmenuException e){
-                        e.printStackTrace();
+                    System.out.println("Ce n'est pas dans le menu !!");  
                         Thread.sleep(1000);
                         scanner.nextLine();
                 }
 
-                    p.setchoix_menu(nombre);
-                    System.out.println(p);
-
+    
                 }
 
-                
-             System.out.println("Voulez vous commander autre chose ? Repondez par Oui ou par Non");
+                condition3=true;
+                while(condition3){
 
+                    System.out.println("Voulez vous commander la meme chose ? Repondez par Oui ou par Non");
+                        reponse = scanner.next();
+                        
+                        
+                        if(  (reponse.equals("Oui"))  || (reponse.equals("Non")) || (reponse.equals("oui")) || (reponse.equals("non")) ){
+                            condition3=false;
+                           
+            
+    
+                        }else{ System.out.println("Desole je n'ai pas compris");}
+                     
+    
+                    }
+
+                    if((reponse.equals("Oui")) || (reponse.equals("oui")) ){
+                        p.addlememeMenu();
+
+                        }
+
+
+
+                condition3=true;
              while(condition3){
 
-                    reponse = scanner.nextLine();
+                System.out.println("Voulez vous commander autre chose ? Repondez par Oui ou par Non");
+                    reponse = scanner.next();
                     
                     
-                    if(reponse!="Oui" || reponse!="Non" || reponse!="oui" || reponse!="non"){
+                    if(  (reponse.equals("Oui"))  || (reponse.equals("Non")) || (reponse.equals("oui")) || (reponse.equals("non")) ){
+                        condition3=false;
+                       
+        
 
-                        System.out.println("Desole je n'ai pas compris");
-                    }else{condition3=false;}
+                    }else{ System.out.println("Desole je n'ai pas compris");}
                  
 
                 }
                
-
+                if((reponse.equals("Non")) || (reponse.equals("non")) ){
+                    
                 condition2=false;
+                }
             }
-            scanner.close(); }       
+            System.out.println(p);
+            scanner.close();}      
 }
     

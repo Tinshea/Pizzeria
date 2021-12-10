@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 public class Commande {
     private int choix_menu;
+    private boolean vegetarien=false;
     public static final Commande C = new Commande();
     ArrayList<Menu> menu = new ArrayList<Menu>(); 
     Menu m;
@@ -11,9 +12,10 @@ public class Commande {
     }
     public static Commande getInstance(){return C;}    
 
-    public void addMenu(int choix_menu){
+    public void addMenu(int choix_menu,boolean vegetarien){
         this.choix_menu=choix_menu;
-        m=new Menu(choix_menu);
+        this.vegetarien=vegetarien;
+        m=new Menu(choix_menu,vegetarien);
         menu.add(m);}
 
        public void addlememeMenu(){
