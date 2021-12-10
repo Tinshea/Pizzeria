@@ -4,6 +4,7 @@
         public static void main(String[] args) throws InterruptedException{
             
             Scanner scanner = new Scanner(System.in);
+            Commande p = Commande.getInstance();
 
             // Affiche "Ecrire un nombre: "
            
@@ -34,7 +35,6 @@
                     Thread.sleep(1000);
                     scanner.nextLine();}
 
-                    Commande p = Commande.getInstance();
                     p.setchoix_menu(nombre);
                     System.out.println(p);
 
