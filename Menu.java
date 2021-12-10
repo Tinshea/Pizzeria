@@ -2,8 +2,9 @@ public class Menu {
     private static int num_commande;
     private int cpt=0;
     private int choix_menu;
+    private boolean vegetarien;
     protected boolean commande_pret=false;
-    protected boolean vegetarien=false;
+   
 
     public Menu(int choix_menu){
         num_commande++;
@@ -25,7 +26,7 @@ public class Menu {
 
     public Menu clone(){
     
-        return new Menu(choix_menu);
+        return new Menu(choix_menu,vegetarien);
     }
 
     public String toString(){

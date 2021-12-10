@@ -22,7 +22,7 @@ import java.io.InputStreamReader;
             Commande p = Commande.getInstance();
             File file= new File("Serveur.txt");
          
-           
+           //Bloc Pour afficher les dessins
            try{
                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
                String line= reader.readLine();
@@ -69,7 +69,6 @@ import java.io.InputStreamReader;
                         vegetarien=true;
 
                         }
-
                 //bloc pour le Choix du menu
                 while(condition){
                     System.out.println("Choississez votre Menu");   
@@ -81,6 +80,7 @@ import java.io.InputStreamReader;
                     nombre = scanner.nextInt();
                     inmenu(nombre);
                     p.addMenu(nombre,vegetarien);
+                    vegetarien=false;
                     condition=false;
                     
                     
