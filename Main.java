@@ -1,5 +1,6 @@
-    import java.util.InputMismatchException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
+
     public class Main {
         
         private static void inmenu(int nombre) throws NoinmenuException{
@@ -35,7 +36,6 @@ import java.util.Scanner;
                     nombre = scanner.nextInt();
                     System.out.println(nombre);
                     condition=false;
-                    scanner.close();
                     inmenu(nombre);
                 
                 } catch(InputMismatchException e){
@@ -47,7 +47,7 @@ import java.util.Scanner;
                         e.printStackTrace();
                         Thread.sleep(1000);
                         scanner.nextLine();
-                }
+                }finally{scanner.close();}
 
                     p.setchoix_menu(nombre);
                     System.out.println(p);
@@ -66,7 +66,7 @@ import java.util.Scanner;
                 // à  la variable nombre du programme
                     reponse = scanner.next();
                     condition3=false;
-                    scanner.close();
+                    
 
                     if(reponse!="Oui" || reponse!="Non" || reponse!="oui" || reponse!="non"){
 
@@ -78,9 +78,11 @@ import java.util.Scanner;
                     
                     System.out.println("Vous n'avez pas rentrer une reponse valide, Veuillez reessayer !!");  
                     Thread.sleep(1000); 
-                    scanner.nextLine();}
+                    scanner.nextLine();}finally{scanner.close();}
 
                 }
+
+                condition2=false;
             }
         }       
 }
