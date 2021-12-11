@@ -13,7 +13,14 @@ public class Commande {
     public static Commande getInstance() {
         return C;
     }
-
+    public static void LireDoucement(String s) throws InterruptedException{
+        for(int i=0;i<s.length();i++){
+            System.out.print(s.charAt(i));
+            Thread.sleep(15);
+        }
+        System.out.println("\n");
+       
+    }
     public void addMenu(int choix_menu, boolean vegetarien) {
         this.choix_menu = choix_menu;
         this.vegetarien = vegetarien;

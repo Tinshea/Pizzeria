@@ -8,7 +8,7 @@ import java.io.InputStreamReader;
     public class Main {
         
         private static void inmenu(int nombre) throws NoinmenuException{
-            if(nombre>15){
+            if(nombre>18){
                     throw new NoinmenuException();
                 
             }
@@ -21,6 +21,7 @@ import java.io.InputStreamReader;
             Scanner scanner = new Scanner(System.in);
             Commande p = Commande.getInstance();
             File file= new File("Serveur.txt");
+            File MenuPizza= new File("MenuPizza.txt");
          
            //Bloc Pour afficher les dessins
            try{
@@ -35,6 +36,7 @@ import java.io.InputStreamReader;
            }catch(IOException exp){
                System.out.println("Erreur d'ouverture");
            }
+           System.out.println("");
             int nombre=0;
             String reponse="";
             boolean vegetarien=false;
@@ -49,9 +51,8 @@ import java.io.InputStreamReader;
                 boolean condition3=true;
 
                 while(condition3){
-                    Thread.sleep(1000);
 
-                    System.out.println("etes-vous vegetarien ? Repondez par Oui ou par Non");
+                    Commande.LireDoucement("Etes-vous vegetarien ? Repondez par Oui ou par Non");
                         reponse = scanner.next();
                         
                         
@@ -60,7 +61,7 @@ import java.io.InputStreamReader;
                            
             
     
-                        }else{ System.out.println("Desole je n'ai pas compris");}
+                        }else{ Commande.LireDoucement("Desole je n'ai pas compris");}
                      
     
                     }
@@ -71,12 +72,25 @@ import java.io.InputStreamReader;
                         }
                 //bloc pour le Choix du menu
                 while(condition){
-                    System.out.println("Choississez votre Menu");   
-                  
+                    Commande.LireDoucement("Choississez votre Menu :");
+                    Thread.sleep(500);
                 try{
                     //Lit l'entier écrit par l'utilisateur et l'affecte 
                     // à  la variable nombre du programme
 
+                    try{
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(MenuPizza),"UTF-8"));
+                        String line= reader.readLine();
+                        while(line!=null)
+                        {
+                            System.out.println(line);
+                            Thread.sleep(15);
+                            line=reader.readLine();
+                        }
+                        reader.close();
+                    }catch(IOException exp){
+                        System.out.println("Erreur d'ouverture");
+                    }
                     nombre = scanner.nextInt();
                     inmenu(nombre);
                     p.addMenu(nombre,vegetarien);
@@ -88,13 +102,13 @@ import java.io.InputStreamReader;
                 
                 } catch(InputMismatchException e){
 
-                    System.out.println("Vous n'avez pas rentrer un nombre valide, Veuillez reessayer !!");  
+                    Commande.LireDoucement("Vous n'avez pas rentrer un nombre valide, Veuillez reessayer !!");  
                     Thread.sleep(1000);
                     scanner.nextLine();}
         
 
                 catch(NoinmenuException e){
-                    System.out.println("Ce n'est pas dans le menu !!");  
+                    Commande.LireDoucement("Ce n'est pas dans le menu !!");  
                         Thread.sleep(1000);
                         scanner.nextLine();
                 }
@@ -105,7 +119,7 @@ import java.io.InputStreamReader;
                 condition3=true;
                 while(condition3){
 
-                    System.out.println("Voulez vous commander la meme chose ? Repondez par Oui ou par Non");
+                    Commande.LireDoucement("Voulez vous commander la meme chose ? Repondez par Oui ou par Non");
                         reponse = scanner.next();
                         
                         
@@ -114,7 +128,7 @@ import java.io.InputStreamReader;
                            
             
     
-                        }else{ System.out.println("Desole je n'ai pas compris");}
+                        }else{  Commande.LireDoucement("Desole je n'ai pas compris");}
                      
     
                     }
@@ -129,7 +143,7 @@ import java.io.InputStreamReader;
                 condition3=true;
              while(condition3){
 
-                System.out.println("Voulez vous commander autre chose ? Repondez par Oui ou par Non");
+                Commande.LireDoucement("Voulez vous commander autre chose ? Repondez par Oui ou par Non");
                     reponse = scanner.next();
                     
                     
@@ -138,7 +152,7 @@ import java.io.InputStreamReader;
                        
         
 
-                    }else{ System.out.println("Desole je n'ai pas compris");}
+                    }else{ Commande.LireDoucement("Desole je n'ai pas compris");}
                  
 
                 }
