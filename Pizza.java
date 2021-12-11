@@ -7,23 +7,27 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Pizza extends Menu {
-    protected  double taille;
+    protected  int taille;
     protected double Prix;
-    private static double taillepizza;
+    private static int taillepizza;
     static Scanner scanner = new Scanner(System.in);
 
    static File SizePizza= new File("SizePizza.txt");
 
-    public Pizza(int choix_menu,double taille){
+    public Pizza(int choix_menu,int taille){
         super(choix_menu);
         this.taille=taille;
 
     }
 
-    public Pizza(int choix_menu,double taille,boolean vegetarien){
+    public Pizza(int choix_menu,int taille,boolean vegetarien){
         super(choix_menu,vegetarien);
         this.taille=taille;
 
+    }
+
+    public Pizza clone(){
+        return new Pizza(choix_menu,taille,vegetarien);
     }
 
      //affiche le menu
@@ -43,14 +47,14 @@ public class Pizza extends Menu {
        }
     }
 
-    public static void sizeofpizza(double size) throws NoSizeofPizzaException, InterruptedException{
+    public static void sizeofpizza(int size) throws NoSizeofPizzaException, InterruptedException{
         if(size == 26 || size == 33 || size == 40){
             Commande.LireDoucement("vous avez pris la taille "+size+"cm");
                 
         }else{ throw new NoSizeofPizzaException();}
     }
 
-    public static double DemandetaillePizza() throws InterruptedException{
+    public static int DemandetaillePizza() throws InterruptedException{
         boolean condition=true;
 
         while(condition){
@@ -65,11 +69,6 @@ public class Pizza extends Menu {
             condition=false;
 
             
-            
-            
-            
-          
-        
         } catch(InputMismatchException e){
 
             Commande.LireDoucement("Vous n'avez pas rentrer un nombre valide, Veuillez reessayer !!");  
@@ -86,4 +85,8 @@ public class Pizza extends Menu {
     }
     return taillepizza;
     }
+
+    public String toString(){
+        return super.toString()+"\n La Taille de votre pizza est: "+taille;
+}
 }

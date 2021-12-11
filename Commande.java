@@ -6,7 +6,7 @@ public class Commande {
     public static final Commande C = new Commande();
     private double prix_total=0;
     ArrayList<Menu> menu = new ArrayList<Menu>();
-    Menu m;
+    Pizza m;
 
     private Commande() {
     }
@@ -22,7 +22,7 @@ public class Commande {
         System.out.println("\n");
        
     }
-    public void addMenu(int choix_menu,double taille,boolean vegetarien) {
+    public void addMenu(int choix_menu,int taille,boolean vegetarien) {
         this.choix_menu = choix_menu;
         this.vegetarien = vegetarien;
         this.m=new Menu_Pizza(choix_menu,taille , vegetarien);
@@ -30,14 +30,14 @@ public class Commande {
     }
 
     public void addlememeMenu() {
-        this.menu.add(this.m.clone());
+        this.menu.add((Pizza)m.clone());
     }
 
     public String toString() {
         String s = "je repete votre commande, vous avez bien choisie :\n";
         for (int i = 0; i < this.menu.size(); ++i) {
-            s += this.menu.get(i) + "\n";
+            s +="----------------------------------\n"+this.menu.get(i) + "\n";
         }
-        return s;
+        return s+"----------------------------------\n";
     }
 }

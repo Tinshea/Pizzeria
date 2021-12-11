@@ -35,7 +35,7 @@ import java.io.InputStreamReader;
            //Variable general
             int nombre=0;
             String reponse="";
-            double taille=0;
+            int taille=0;
             boolean vegetarien=false;
             boolean condition2=true;
           

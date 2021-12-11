@@ -8,9 +8,8 @@ public class Menu_Pizza extends Pizza{
 
     static File MenuPizza= new File("MenuPizza.txt");
 
-    public Menu_Pizza(int choix_menu,double taille,boolean vegetarien){
+    public Menu_Pizza(int choix_menu,int taille,boolean vegetarien){
         super(choix_menu,taille,vegetarien);
-        System.out.println("check");
     }
 
     //savoir si c'est dans le menu
@@ -39,4 +38,7 @@ public class Menu_Pizza extends Pizza{
     }
 }
     
+
+ 
+
 }
