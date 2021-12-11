@@ -2,7 +2,7 @@ public class Menu {
     private static int num_commande;
     private int cpt=0;
     private int choix_menu;
-    private boolean vegetarien;
+    protected boolean vegetarien;
     protected boolean commande_pret=false;
    
 
@@ -23,6 +23,8 @@ public class Menu {
         this.commande_pret=true;
         return  commande_pret;
     }
+
+    
 
     public Menu clone(){
     

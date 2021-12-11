@@ -5,15 +5,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
     public class Main {
-        
-        private static void inmenu(int nombre) throws NoinmenuException{
-            if(nombre>18){
-                    throw new NoinmenuException();
-                
-            }
-        }
-        
         
         public static void main(String[] args) throws InterruptedException {
             
@@ -21,9 +14,8 @@ import java.io.InputStreamReader;
             Scanner scanner = new Scanner(System.in);
             Commande p = Commande.getInstance();
             File file= new File("Serveur.txt");
-            File MenuPizza= new File("MenuPizza.txt");
          
-           //Bloc Pour afficher les dessins
+           //Bloc Pour afficher lle Logo 
            try{
                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file),"UTF-8"));
                String line= reader.readLine();
@@ -36,9 +28,14 @@ import java.io.InputStreamReader;
            }catch(IOException exp){
                System.out.println("Erreur d'ouverture");
            }
+
+
            System.out.println("");
+
+           //Variable general
             int nombre=0;
             String reponse="";
+            double taille=0;
             boolean vegetarien=false;
             boolean condition2=true;
           
@@ -50,6 +47,7 @@ import java.io.InputStreamReader;
                 boolean condition=true;
                 boolean condition3=true;
 
+                //Bloc pour savoir si la personne est vegetarien
                 while(condition3){
 
                     Commande.LireDoucement("Etes-vous vegetarien ? Repondez par Oui ou par Non");
@@ -70,32 +68,48 @@ import java.io.InputStreamReader;
                         vegetarien=true;
 
                         }
+
+
+                condition3=true;
+                //bloc pour savoir si la personne veut composer ou choisir dans le menu
+                while(condition3){
+
+                    Commande.LireDoucement("Voulez-vous composez votre Pizza ou choisir dans le menu : Repondez par composer ou menu");
+                        reponse = scanner.next();
+                        
+                        // le == ne marche donc equal
+                        if(  (reponse.equals("composer"))  || (reponse.equals("Composer")) || (reponse.equals("Menu")) || (reponse.equals("menu")) ){
+                            condition3=false;
+                           
+            
+    
+                        }else{ Commande.LireDoucement("Desole je n'ai pas compris");}
+                     
+    
+                    }
+
+                    if((reponse.equals("Composer")) || (reponse.equals("composer")) ){
+                        System.out.println("compose ta pizza");
+
+                        }else{
+
+                    
+
                 //bloc pour le Choix du menu
                 while(condition){
                     Commande.LireDoucement("Choississez votre Menu :");
                     Thread.sleep(500);
                 try{
-                    //Lit l'entier écrit par l'utilisateur et l'affecte 
-                    // à  la variable nombre du programme
-
-                    try{
-                        BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(MenuPizza),"UTF-8"));
-                        String line= reader.readLine();
-                        while(line!=null)
-                        {
-                            System.out.println(line);
-                            Thread.sleep(15);
-                            line=reader.readLine();
-                        }
-                        reader.close();
-                    }catch(IOException exp){
-                        System.out.println("Erreur d'ouverture");
-                    }
+    
+                   //affiche le menu
+                    Menu_Pizza.affichemenu();
                     nombre = scanner.nextInt();
-                    inmenu(nombre);
-                    p.addMenu(nombre,vegetarien);
+                    Menu_Pizza.inmenu(nombre);
+                    taille=Pizza.DemandetaillePizza();
+                    p.addMenu(nombre,taille,vegetarien);
                     vegetarien=false;
                     condition=false;
+                   
                     
                     
                   
@@ -115,6 +129,8 @@ import java.io.InputStreamReader;
 
     
                 }
+            }
+
 
                 condition3=true;
                 while(condition3){
@@ -140,7 +156,9 @@ import java.io.InputStreamReader;
 
 
 
+                
                 condition3=true;
+                //bloc pour commander autre chose
              while(condition3){
 
                 Commande.LireDoucement("Voulez vous commander autre chose ? Repondez par Oui ou par Non");

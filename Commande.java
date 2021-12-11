@@ -22,10 +22,10 @@ public class Commande {
         System.out.println("\n");
        
     }
-    public void addMenu(int choix_menu, boolean vegetarien) {
+    public void addMenu(int choix_menu,double taille,boolean vegetarien) {
         this.choix_menu = choix_menu;
         this.vegetarien = vegetarien;
-        this.m=new Menu(choix_menu, vegetarien);
+        this.m=new Menu_Pizza(choix_menu,taille , vegetarien);
         this.menu.add(this.m);
     }
 
