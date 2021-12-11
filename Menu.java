@@ -1,7 +1,7 @@
 public class Menu {
     private static int num_commande;
     private int cpt=0;
-    private int choix_menu;
+    protected int choix_menu;
     protected boolean vegetarien;
     protected boolean commande_pret=false;
    
@@ -26,10 +26,7 @@ public class Menu {
 
     
 
-    public Menu clone(){
     
-        return new Menu(choix_menu,vegetarien);
-    }
 
     public String toString(){
         return " Le menu "+choix_menu+"\n Vous etes vegetarien: "+vegetarien+"\n Votre numero de commande : "+cpt+"\n Votre commande est prete ?: "+commande_pret; 
