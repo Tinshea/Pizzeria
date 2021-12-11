@@ -55,7 +55,7 @@ import java.io.InputStreamReader;
                     Commande.LireDoucement("Etes-vous vegetarien ? Repondez par Oui ou par Non");
                         reponse = scanner.next();
                         
-                        
+                        // le == ne marche donc equal
                         if(  (reponse.equals("Oui"))  || (reponse.equals("Non")) || (reponse.equals("oui")) || (reponse.equals("non")) ){
                             condition3=false;
                            

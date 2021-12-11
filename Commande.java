@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 
 public class Commande {
-    private int choix_menu;
-    private boolean vegetarien;
+    private int choix_menu=0;
+    private boolean vegetarien=false;
     public static final Commande C = new Commande();
+    private double prix_total=0;
     ArrayList<Menu> menu = new ArrayList<Menu>();
     Menu m;
 
