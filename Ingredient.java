@@ -13,8 +13,6 @@ public class Ingredient {
         this.nom = nom ;
         this.prix = prix;
         this.estVege = estVege;
-        this.prixTotal += this.prix;
-        lstIngredients.add(this); // On l'ajoute dans lstIngredient 
     }
     public Ingredient() {}
     

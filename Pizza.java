@@ -39,6 +39,7 @@ public abstract class Pizza extends Menu {
 
     public abstract Pizza clone(); //Clonage
     public abstract void affiche() throws InterruptedException; //affichage
+    public abstract double getprixdepizza();
 
     //Methode :  
     //affiche le menu

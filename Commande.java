@@ -9,7 +9,7 @@ public class Commande {
     private int taille=0;
     private Ingredient Ingredient;
     public static final Commande C = new Commande();// l'unique instance de commande 
-    private double prix_total=0;
+    private static double prix_total=0;
     ArrayList<Menu> menu = new ArrayList<Menu>();
     Pizza m;
 
@@ -28,10 +28,9 @@ public class Commande {
         System.out.println("\n");
        
     }
-
     //affiche Le menu pour les pizzas
     public void afficheMenu(boolean vegetarien) throws InterruptedException{
-        this.m=new Menu_Pizza();
+        this.m=new Menu_Pizza(vegetarien);
         m.affiche();
     }
 
@@ -48,6 +47,7 @@ public class Commande {
         this.taille=taille;
         this.m=new Menu_Pizza(choix_menu,taille , vegetarien);
         this.menu.add(this.m);
+        this.prix_total+=m.getprixdepizza();
     }
 
     //rajoute la pizza composé dans la commande 
@@ -58,6 +58,7 @@ public class Commande {
         this.Ingredient=Ingredient;
         this.m=new Compose(taille,vegetarien,Sauce,Ingredient);
         this.menu.add(this.m);
+        this.prix_total+=m.getprixdepizza();
     }
 
     //Rajoute la meme pizza que commander précédement 
@@ -75,7 +76,7 @@ public class Commande {
         for (int i = 0; i < this.menu.size(); ++i) {
             s +="----------------------------------\n"+this.menu.get(i) ;
         }
-        return s+"----------------------------------\n";
+        return s+"----------------------------------\n"+"Merci de Payer un total de :"+String.format("%.2f",prix_total)+"Euro\n";
     }
 
 }

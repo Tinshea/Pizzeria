@@ -137,6 +137,11 @@ public class Compose extends Pizza {
                 public Compose clone(){
                     return new Compose(taille,vegetarien,Sauce,Ingredient);
                 }
+
+        //getteur
+        public double getprixdepizza(){
+        return Prix;
+    }
                 public String toString(){
                     String s="Vos ingredients sont :\n";
                     for (int i = 0; i < this.Ingredient.sizeLstIngredient(); ++i) {
