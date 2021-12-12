@@ -1,18 +1,44 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Compose extends Pizza {
     static String reponse=""; 
     private String Sauce;
     static boolean condition=true;
     private static Ingredient I;
     private static Ingredient Ingredient;
+    static File ingredient= new File("Ingredient.txt");
    
 
-    private static String[] tabIngredient={"Olive","Jambon","Fromage","Champignon"};
+    private static String[] tabIngredient={"Jambon","Olive","Fromage","Champignon","jambon","olive","fromage","champignon"};
 
     public Compose(int taille,boolean vegetarien,String Sauce,Ingredient Ingredient) {
         super(taille,vegetarien);
         this.Sauce=Sauce;
         this.Ingredient=Ingredient;
      
+    }
+    public Compose(){super();}
+        public void affiche() throws InterruptedException{
+            
+         try{
+            BufferedReader reader= new BufferedReader(new InputStreamReader(new FileInputStream(ingredient),"UTF-8"));
+            
+            String line= reader.readLine();
+            while(line!=null)
+            {
+                System.out.println(line);
+                Thread.sleep(15);
+                line=reader.readLine();
+            }
+            reader.close();
+        }catch(IOException exp){
+            System.out.println("Erreur d'ouverture");
+        }
+        
     }
     
     public static void DemandeIngredient() throws InterruptedException{
@@ -21,6 +47,11 @@ public class Compose extends Pizza {
         Boolean condtemp=false;
         while(condition){
         while(condition){
+            // Afficher les ingredients
+                for (int i = 0; i < tabIngredient.length/2; i++) { // Afficher tous les ingredients, si client est nonVeget
+                    System.out.println((i+1)+". "+tabIngredient[i]);
+                } 
+
             Commande.LireDoucement("choisissez vos ingredients : Repondez par le nom de l'ingredient");
                 reponse = scanner.next();
                 
@@ -40,7 +71,15 @@ public class Compose extends Pizza {
                 case "Jambon":I=new Jambon();break;
                 case "Fromage":I=new Fromage();break;
                 case "Champignon":I=new Champignon();break;
+                // Si la reponse avec minuscule 
+                case "olive":I=new Olive();break;
+                case "jambon":I=new Jambon();break;
+                case "fromage":I=new Fromage();break;
+                case "champignon":I=new Champignon();break;
             }
+            try {
+                Fromage.nonDisponible();
+                }catch(NotInStockException e){Commande.LireDoucement("Desoler nous n'avons plus cet ingredient");}
             Ingredient.ajouterSupplement(I);
             System.out.println(I);
             condition=true;
@@ -99,6 +138,8 @@ public class Compose extends Pizza {
 
                     
                 }
+
+                
         }      
 
 
