@@ -3,12 +3,12 @@ public class Compose extends Pizza {
     private String Sauce;
     static boolean condition=true;
     private static Ingredient I;
-    private ToutIngredient Ingredient;
+    private static Ingredient Ingredient;
    
 
     private static String[] tabIngredient={"Olive","Jambon","Fromage","Champignon"};
 
-    public Compose(int taille,boolean vegetarien,String Sauce,ToutIngredient Ingredient) {
+    public Compose(int taille,boolean vegetarien,String Sauce,Ingredient Ingredient) {
         super(taille,vegetarien);
         this.Sauce=Sauce;
         this.Ingredient=Ingredient;
@@ -41,7 +41,7 @@ public class Compose extends Pizza {
                 case "Fromage":I=new Fromage();break;
                 case "Champignon":I=new Champignon();break;
             }
-            ToutIngredient.ajouterSupplement(I);
+            Ingredient.ajouterSupplement(I);
             System.out.println(I);
             condition=true;
 

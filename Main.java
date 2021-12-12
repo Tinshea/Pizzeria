@@ -91,7 +91,7 @@ public static void main(String[] args) throws InterruptedException {
             if((reponse.equals("Composer")) || (reponse.equals("composer")) ){
                 Commande.LireDoucement("Compose ta pizza");
                 taille=Pizza.DemandetaillePizza();
-                ToutIngredient T=new ToutIngredient();
+                Ingredient T=new Ingredient();
                 Compose.DemandeIngredient();
                 
                 p.addCompose(taille, vegetarien, Compose.DemandeSauce(),T);

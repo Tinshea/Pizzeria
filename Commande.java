@@ -5,7 +5,7 @@ public class Commande {
     private boolean vegetarien=false;
     private String Sauce="";
     private int taille=0;
-    private ToutIngredient Ingredient;
+    private Ingredient Ingredient;
     public static final Commande C = new Commande();
     private double prix_total=0;
     ArrayList<Menu> menu = new ArrayList<Menu>();
@@ -34,7 +34,7 @@ public class Commande {
         this.menu.add(this.m);
     }
 
-    public void addCompose(int taille,boolean vegetarien,String Sauce,ToutIngredient Ingredient) {
+    public void addCompose(int taille,boolean vegetarien,String Sauce,Ingredient Ingredient) {
         this.vegetarien = vegetarien;
         this.taille=taille;
         this.Sauce=Sauce;
