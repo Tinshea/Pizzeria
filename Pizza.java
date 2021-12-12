@@ -6,6 +6,8 @@ import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.swing.UIDefaults.ActiveValue;
+
 public abstract class Pizza extends Menu {
     // Attributs 
     protected  int taille;
@@ -92,9 +94,10 @@ public abstract class Pizza extends Menu {
         }
         return taillepizza;
     }
-
     // toString
     public String toString(){
         return super.toString()+"\nLa Taille de votre pizza est: "+taille+"cm\n";
     }
+
+    
 }

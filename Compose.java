@@ -11,6 +11,7 @@ public class Compose extends Pizza {
     private static Ingredient I;
     private static Ingredient Ingredient;
     static File ingredient= new File("Ingredient.txt");
+    private double prix; 
    
 
     private static String[] tabIngredient={"Jambon","Olive","Fromage","Champignon","jambon","olive","fromage","champignon"};
@@ -19,9 +20,12 @@ public class Compose extends Pizza {
         super(taille,vegetarien);
         this.Sauce=Sauce;
         this.Ingredient=Ingredient;
-     
+        if (taille == 26) {this.prix = 5+ Ingredient.getPrixTotal();}
+        if (taille == 33) {this.prix = 7+ Ingredient.getPrixTotal();}
+        if (taille == 40) {this.prix= 9+ Ingredient.getPrixTotal();}
     }
     public Compose(){super();}
+    
         public void affiche() throws InterruptedException{
             
          try{
@@ -40,6 +44,7 @@ public class Compose extends Pizza {
         }
         
     }
+    public double getPrix() {return prix; }
     
     public static void DemandeIngredient() throws InterruptedException{
         
@@ -76,6 +81,8 @@ public class Compose extends Pizza {
                 case "jambon":I=new Jambon();break;
                 case "fromage":I=new Fromage();break;
                 case "champignon":I=new Champignon();break;
+
+            
             }
             try {
                 Fromage.nonDisponible();
@@ -126,6 +133,7 @@ public class Compose extends Pizza {
 
                 }
 
+
                 public Compose clone(){
                     return new Compose(taille,vegetarien,Sauce,Ingredient);
                 }
@@ -134,7 +142,7 @@ public class Compose extends Pizza {
                     for (int i = 0; i < this.Ingredient.sizeLstIngredient(); ++i) {
                         s +=Ingredient.getLstIngredient(i);
                     }
-                    return super.toString()+s;
+                    return super.toString()+s + "Prix de la pizza : " + this.getPrix()+"\n";
 
                     
                 }

@@ -2,7 +2,7 @@ import java.util.ArrayList ;
 public class Ingredient {
     // Attributs
     private static ArrayList <Ingredient> lstIngredients= new ArrayList<Ingredient>(); // lst de tous les ingredients choisi 
-    private static double prixTotal = 6; // Prix total des ingredients choisi
+    private static double prixTotal = 0; // Prix total des ingredients choisi
     
     protected String nom; // Nom d'un ingredient choisi
     protected double prix; // Prix d'un ingredient choisi
@@ -13,7 +13,8 @@ public class Ingredient {
         this.nom = nom ;
         this.prix = prix;
         this.estVege = estVege;
-        this.prixTotal += this.prix; 
+        this.prixTotal += this.prix;
+        lstIngredients.add(this); // On l'ajoute dans lstIngredient 
     }
     public Ingredient() {}
     

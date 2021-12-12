@@ -18,6 +18,7 @@ public class Menu_Pizza extends Pizza{
     public Menu_Pizza(){}
     public Menu_Pizza(boolean vegetarien){
         super(vegetarien);
+     
     }
 
     public Menu_Pizza(int choix_menu,int taille,boolean vegetarien){
@@ -76,7 +77,7 @@ public class Menu_Pizza extends Pizza{
 
     //Methode toString
     public String toString(){
-        return super.toString()+"Vous avez pris "+Nompizza[choix_menu-1]+"\nVous etes vegetarien: "+isVegetarien()+"\n"+"Le prix est "+Prix;
+        return super.toString()+"Vous avez pris "+Nompizza[choix_menu-1]+"\nVous etes vegetarien: "+isVegetarien()+"\nLe prix est "+ String.format("%.2f", Prix)+"Euro\n";
     }
     
 }
