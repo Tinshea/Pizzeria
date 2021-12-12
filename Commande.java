@@ -77,7 +77,7 @@ public class Commande {
         for (int i = 0; i < this.menu.size(); ++i) {
             s +="----------------------------------\n"+this.menu.get(i) ;
         }
-        return s+"----------------------------------\n"+"Merci de Payer un total de :"+String.format("%.2f",prix_total)+"Euro\n";
+        return s+"----------------------------------\n"+"Merci de Payer un total de :"+String.format("%.2f",prix_total)+"Euros\n";
     }
 
 }

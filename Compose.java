@@ -15,14 +15,15 @@ public class Compose extends Pizza {
    
 
     private static String[] tabIngredient={"Jambon","Olive","Fromage","Champignon","jambon","olive","fromage","champignon"};
-
     public Compose(int taille,boolean vegetarien,String Sauce,Ingredient Ingredient) {
         super(taille,vegetarien);
         this.Sauce=Sauce;
         this.Ingredient=Ingredient;
-        if (taille == 26) {super.Prix = 5+ Ingredient.getPrixTotal();}
-        if (taille == 33) {super.Prix = 7+ Ingredient.getPrixTotal();}
-        if (taille == 40) {super.Prix= 9+ Ingredient.getPrixTotal();}
+        switch(taille){
+        case 26: super.Prix = 5+ Ingredient.getPrixTotal(); break;
+        case 33: super.Prix = 7+ Ingredient.getPrixTotal(); break;
+        case 40: super.Prix= 9+ Ingredient.getPrixTotal(); break;
+        }
     }
     public Compose(){super();}
     
@@ -46,15 +47,19 @@ public class Compose extends Pizza {
     }
     
     public static void DemandeIngredient() throws InterruptedException{
-        
         condition=true;
         Boolean condtemp=false;
         while(condition){
         while(condition){
             // Afficher les ingredients
-                for (int i = 0; i < tabIngredient.length/2; i++) { // Afficher tous les ingredients, si client est nonVeget
-                    System.out.println((i+1)+". "+tabIngredient[i]);
-                } 
+                // for (int i = 0; i < tabIngredient.length/2; i++) { // Afficher tous les ingredients, si client est nonVeget
+                //     if (i == 0) {
+                //         System.out.println((i+1)+". "+tabIngredient[i] + "non vegetarien - 0.50 Euros");
+                //     }
+                //     else {
+                //         System.out.println((i+1)+". "+tabIngredient[i] + "Vegetarien - 0.50 Euros");
+                //     }
+                // } 
 
             Commande.LireDoucement("choisissez vos ingredients : Repondez par le nom de l'ingredient");
                 reponse = scanner.next();
@@ -146,7 +151,7 @@ public class Compose extends Pizza {
                     for (int i = 0; i < this.Ingredient.sizeLstIngredient(); ++i) {
                         s +=Ingredient.getLstIngredient(i);
                     }
-                    return super.toString()+s + "Prix de la pizza : " + getprixdepizza()+"\n";
+                    return super.toString()+s + "Prix de la pizza : " + getprixdepizza()+" Euros \n";
 
                     
                 }
