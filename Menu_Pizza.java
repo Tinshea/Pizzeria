@@ -37,6 +37,13 @@ public class Menu_Pizza extends Pizza{
         System.out.println("Erreur d'ouverture");
     }
 }
+    public Menu_Pizza clone(){
+        return new Menu_Pizza(choix_menu,taille,vegetarien);
+    }
+
+  public String toString(){
+        return super.toString()+"Le menu "+choix_menu+"\nVous etes vegetarien: "+vegetarien+"\n";
+    }
     
 
  

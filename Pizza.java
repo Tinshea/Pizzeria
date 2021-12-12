@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Pizza extends Menu {
+public abstract class Pizza extends Menu {
     protected  int taille;
     protected double Prix;
     private static int taillepizza;
@@ -14,11 +14,11 @@ public class Pizza extends Menu {
 
    static File SizePizza= new File("SizePizza.txt");
 
-    public Pizza(int choix_menu,int taille){
-        super(choix_menu);
-        this.taille=taille;
+   public Pizza(int taille,boolean vegetarien) {
+    super(vegetarien);
+    this.taille=taille;
+   }
 
-    }
 
     public Pizza(int choix_menu,int taille,boolean vegetarien){
         super(choix_menu,vegetarien);
@@ -26,9 +26,7 @@ public class Pizza extends Menu {
 
     }
 
-    public Pizza clone(){
-        return new Pizza(choix_menu,taille,vegetarien);
-    }
+    public abstract Pizza clone();
 
      //affiche le menu
      public static void affichesize() throws InterruptedException{
@@ -87,6 +85,6 @@ public class Pizza extends Menu {
     }
 
     public String toString(){
-        return super.toString()+"\n La Taille de votre pizza est: "+taille;
+        return super.toString()+"\nLa Taille de votre pizza est: "+taille+"cm\n";
 }
 }

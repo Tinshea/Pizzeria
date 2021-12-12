@@ -6,10 +6,10 @@ public class Menu {
     protected boolean commande_pret=false;
    
 
-    public Menu(int choix_menu){
+    public Menu(boolean vegetarien){
         num_commande++;
         cpt=num_commande;
-        this.choix_menu=choix_menu;
+        this.vegetarien=vegetarien;
     }
 
     public Menu(int choix_menu,boolean vegetarien){
@@ -29,6 +29,6 @@ public class Menu {
     
 
     public String toString(){
-        return " Le menu "+choix_menu+"\n Vous etes vegetarien: "+vegetarien+"\n Votre numero de commande : "+cpt+"\n Votre commande est prete ?: "+commande_pret; 
+        return "Votre numero de commande : "+cpt+"\nVotre commande est prete ?: "+commande_pret; 
     }
 }
