@@ -20,9 +20,9 @@ public class Compose extends Pizza {
         super(taille,vegetarien);
         this.Sauce=Sauce;
         this.Ingredient=Ingredient;
-        if (taille == 26) {this.prix = 5+ Ingredient.getPrixTotal();}
-        if (taille == 33) {this.prix = 7+ Ingredient.getPrixTotal();}
-        if (taille == 40) {this.prix= 9+ Ingredient.getPrixTotal();}
+        if (taille == 26) {super.Prix = 5+ Ingredient.getPrixTotal();}
+        if (taille == 33) {super.Prix = 7+ Ingredient.getPrixTotal();}
+        if (taille == 40) {super.Prix= 9+ Ingredient.getPrixTotal();}
     }
     public Compose(){super();}
     
@@ -44,7 +44,6 @@ public class Compose extends Pizza {
         }
         
     }
-    public double getPrix() {return prix; }
     
     public static void DemandeIngredient() throws InterruptedException{
         
@@ -140,14 +139,14 @@ public class Compose extends Pizza {
 
         //getteur
         public double getprixdepizza(){
-        return Prix;
+        return super.Prix;
     }
                 public String toString(){
                     String s="Vos ingredients sont :\n";
                     for (int i = 0; i < this.Ingredient.sizeLstIngredient(); ++i) {
                         s +=Ingredient.getLstIngredient(i);
                     }
-                    return super.toString()+s + "Prix de la pizza : " + this.getPrix()+"\n";
+                    return super.toString()+s + "Prix de la pizza : " + getprixdepizza()+"\n";
 
                     
                 }

@@ -137,7 +137,7 @@ public static void main(String[] args) throws InterruptedException {
 
             //si il repond oui On clone sa pizza
             if((reponse.equals("Oui")) || (reponse.equals("oui")) ){
-                p.addlememeMenu();}
+                p.addlamemepizza();}
 
             
             //bloc pour commander autre chose

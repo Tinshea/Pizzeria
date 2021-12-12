@@ -37,6 +37,6 @@ public class Menu {
     
     //methode toString
     public String toString(){
-        return "Votre numero de commande : "+cpt+"\nVotre commande est prete ?: "+commande_pret; 
+        return "Votre numero de Pizza : "+cpt+"\nVotre commande est prete ?: "+commande_pret; 
     }
 }

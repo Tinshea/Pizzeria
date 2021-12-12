@@ -62,8 +62,9 @@ public class Commande {
     }
 
     //Rajoute la meme pizza que commander précédement 
-    public void addlememeMenu() {
+    public void addlamemepizza() {
         this.menu.add(m.clone());
+        this.prix_total+=m.clone().getprixdepizza();
     }
 
     //Pour recuperer l'unique instance de Commande
