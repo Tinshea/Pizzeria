@@ -1,3 +1,9 @@
 |---------------------||---------------------||---------------------||---------------------|  
-| 	Jambon        ||      Fromage	     ||     Champignon      ||	     Olive	   |	
+|       Jambon        ||       Fromage       ||      Champignon     ||        Olive        |	
 |---------------------||---------------------||---------------------||---------------------|
+|      0.50 Euros     ||      0.80 Euros     ||      0.50 Euros     ||      0.20 Euros     |
+|---------------------||---------------------||---------------------||---------------------| 
+|    Non Vegetarien   ||      Vegetarien     ||      Vegetarien     ||      Vegetarien     |
+|  Originie Française ||  Originie Française ||  Originie Française ||  Originie Française |
+|   Nutri-Score : C   ||    Nutri-Score : B  ||    Nutri-Score : A  ||    Nutri-Score : D  |
+|_____________________||_____________________||_____________________||_____________________|
