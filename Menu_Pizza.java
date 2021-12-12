@@ -4,7 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Menu_Pizza extends Pizza{
+public class Menu_Pizza extends Pizza implements Dessert{
 
     //Atribut 
     private static File MenuPizza= new File("MenuPizza.txt");
@@ -39,7 +39,10 @@ public class Menu_Pizza extends Pizza{
         }
     }
 
-    
+    //interface :
+    public String dessert(){
+        return"Vous avez a un dessert surprise en plus\n";
+    }
     //Methode :
 
     //savoir si c'est dans le menu
@@ -92,7 +95,7 @@ public class Menu_Pizza extends Pizza{
     //Methode toString
     public String toString(){
         if(vegetarien){
-        return super.toString()+"Vous avez pris "+Nompizzaveg[choix_menu-1]+"\nVous etes vegetarien: "+isVegetarien()+"\nLe prix est "+ Prix+"Euro\n";}
+        return super.toString()+"Vous avez pris "+Nompizzaveg[choix_menu-1]+"\nVous etes vegetarien: "+isVegetarien()+"\nLe prix est "+ Prix+"Euro\n"+dessert();}
 
         else{
             return super.toString()+"Vous avez pris "+Nompizza[choix_menu-1]+"\nVous etes vegetarien: "+isVegetarien()+"\nLe prix est "+ Prix+"Euro\n";
