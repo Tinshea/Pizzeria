@@ -17,8 +17,7 @@ public class Menu_Pizza extends Pizza{
     //constructeur
     public Menu_Pizza(){}
     public Menu_Pizza(boolean vegetarien){
-        super(vegetarien);
-     
+        this.vegetarien=vegetarien;
     }
 
     public Menu_Pizza(int choix_menu,int taille,boolean vegetarien){
