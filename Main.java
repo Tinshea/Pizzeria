@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
-
+//Projet Malek et Lasha 
 public static void main(String[] args) throws InterruptedException {
     
 
@@ -19,7 +19,8 @@ public static void main(String[] args) throws InterruptedException {
     boolean condition2=true;
     Scanner scanner = new Scanner(System.in);
     Commande p = Commande.getInstance();
-    File file= new File("Serveur.txt");
+    File file= new File("Logo.txt");
+    String desoler= "Desole je n'ai pas compris";
     
     //Bloc Pour afficher le Logo 
     try{
@@ -54,7 +55,7 @@ public static void main(String[] args) throws InterruptedException {
             {condition3=false;}
             else
                 {
-                Commande.LireDoucement("Desole je n'ai pas compris");}
+                Commande.LireDoucement(desoler);}
         }
             //fin du Bloc pour savoir si la personne est vegetarien
         //On regarde La reponse du client
@@ -73,7 +74,7 @@ public static void main(String[] args) throws InterruptedException {
                 if( (reponse.equals("composer")) || (reponse.equals("Composer")) || (reponse.equals("Menu")) || (reponse.equals("menu")) ){
                     condition3=false;}
                     else
-                    {Commande.LireDoucement("Desole je n'ai pas compris");}
+                    {Commande.LireDoucement(desoler);}
                 }    
                  //fin bloc pour savoir si la personne veut composer ou choisir dans le menu
 
@@ -96,7 +97,7 @@ public static void main(String[] args) throws InterruptedException {
 
                 //bloc pour le Choix du menu
                 while(condition){
-                    Commande.LireDoucement("Choississez votre Menu :");
+                    Commande.LireDoucement("Choississez votre Menu : (mettre le numero associer a la Pizza)");
                     Thread.sleep(500);
                 try{
                     p.afficheMenu(vegetarien); //affiche le menu
@@ -131,7 +132,7 @@ public static void main(String[] args) throws InterruptedException {
                 if((reponse.equals("Oui")) || (reponse.equals("Non")) || (reponse.equals("oui")) || (reponse.equals("non")) ){
                     condition3=false;
                 }
-                else{Commande.LireDoucement("Desole je n'ai pas compris");}
+                else{Commande.LireDoucement(desoler);}
                 }
             //Fin Bloc pour savoir si l'utilisateur veut commander la meme chose
 
@@ -147,7 +148,7 @@ public static void main(String[] args) throws InterruptedException {
                 reponse = scanner.next();
                 if( (reponse.equals("Oui")) || (reponse.equals("Non")) || (reponse.equals("oui")) || (reponse.equals("non")) ){
                     condition3=false;       
-                }else{ Commande.LireDoucement("Desole je n'ai pas compris");}
+                }else{ Commande.LireDoucement(desoler);}
             }
             if((reponse.equals("Non")) || (reponse.equals("non")) ){
             condition2=false;

@@ -32,14 +32,17 @@ public class Menu_Pizza extends Pizza implements Dessert{
 
     public Menu_Pizza(int choix_menu,int taille,boolean vegetarien){ 
         super(choix_menu,taille,vegetarien);
+        //on Initialise les prix des pizza avec la taille
         switch(taille){
             case 26: if(vegetarien) {super.Prix =PrixPizzaveg[choix_menu-1];}else{super.Prix =PrixPizza[choix_menu-1];} break;
             case 33: if(vegetarien) {super.Prix =2+PrixPizzaveg[choix_menu-1];}else{super.Prix =2+PrixPizza[choix_menu-1];} break; 
             case 40: if(vegetarien) {super.Prix =4+PrixPizzaveg[choix_menu-1];}else{super.Prix =4+PrixPizza[choix_menu-1];} break; 
+            default: break;
+
         }
     }
 
-    //interface :
+    //interface seulement ceux qui ont pris un menu ont le droit à un dessert:
     public String dessert(){
         return"Vous avez a un dessert surprise en plus\n";
     }
@@ -93,6 +96,7 @@ public class Menu_Pizza extends Pizza implements Dessert{
     
 
     //Methode toString
+    @Override
     public String toString(){
         if(vegetarien){
         return super.toString()+"Vous avez pris "+Nompizzaveg[choix_menu-1]+"\nVous etes vegetarien: "+isVegetarien()+"\nLe prix est "+ Prix+"Euro\n"+dessert();}

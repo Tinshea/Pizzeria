@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-import javax.swing.UIDefaults.ActiveValue;
 
 public abstract class Pizza extends Menu {
     // Attributs 
@@ -96,6 +95,7 @@ public abstract class Pizza extends Menu {
         return taillepizza;
     }
     // toString
+    @Override
     public String toString(){
         return super.toString()+"\nLa Taille de votre pizza est: "+taille+"cm\n";
     }

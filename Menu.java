@@ -4,7 +4,6 @@ public class Menu {
     private int cpt=0;
     protected int choix_menu;
     protected boolean vegetarien;
-    protected boolean commande_pret=false;
    
     //Constructeur 
     public Menu(){}
@@ -25,11 +24,7 @@ public class Menu {
     }
 
 
-    //seteur et Getteur
-    public boolean set_commandepret(){
-        this.commande_pret=true;
-        return  commande_pret;
-    }
+    //Getteur
 
     public boolean isVegetarien() {
         return vegetarien;
@@ -37,6 +32,6 @@ public class Menu {
     
     //methode toString
     public String toString(){
-        return "Votre numero de Pizza : "+cpt+"\nVotre commande est prete ?: "+commande_pret; 
+        return "Votre numero de Pizza : "+cpt;
     }
 }
